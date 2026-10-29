@@ -1,0 +1,115 @@
+{
+  "file": "C:\\Shrawan\\academics\\BTECH\\7TH SEM\\ARVR\\AR\\VCR-AR-Explorer\\model-generation\\output\\VCR_System.glb",
+  "bytes": 1192240,
+  "triangles": 38700,
+  "components": [
+    {
+      "node": "C01_Compressor",
+      "id": "compressor",
+      "centre": [
+        -0.12,
+        0.262,
+        0.131
+      ]
+    },
+    {
+      "node": "C02_Condenser",
+      "id": "condenser",
+      "centre": [
+        -0.378,
+        0.45,
+        -0.12
+      ]
+    },
+    {
+      "node": "C03_ExpansionValve",
+      "id": "expansion_valve",
+      "centre": [
+        0.13,
+        0.4681,
+        -0.0882
+      ]
+    },
+    {
+      "node": "C04_Evaporator",
+      "id": "evaporator",
+      "centre": [
+        0.378,
+        0.45,
+        -0.12
+      ]
+    },
+    {
+      "node": "C05_ReceiverDrier",
+      "id": "receiver_drier",
+      "centre": [
+        -0.05,
+        0.2325,
+        -0.1965
+      ]
+    },
+    {
+      "node": "C06_CondenserFan",
+      "id": "condenser_fan",
+      "centre": [
+        -0.38,
+        0.45,
+        -0.2401
+      ]
+    },
+    {
+      "node": "C07_EvaporatorFan",
+      "id": "evaporator_fan",
+      "centre": [
+        0.38,
+        0.45,
+        -0.0099
+      ]
+    },
+    {
+      "node": "C08_DischargeLine",
+      "id": "discharge_line",
+      "centre": [
+        -0.155,
+        0.5362,
+        0.0
+      ]
+    },
+    {
+      "node": "C09_LiquidLine",
+      "id": "liquid_line",
+      "centre": [
+        -0.0575,
+        0.3725,
+        -0.1301
+      ]
+    },
+    {
+      "node": "C10_SuctionLine",
+      "id": "suction_line",
+      "centre": [
+        0.0975,
+        0.4075,
+        0.0
+      ]
+    },
+    {
+      "node": "C11_PressureGauges",
+      "id": "pressure_gauges",
+      "centre": [
+        0.0,
+        0.695,
+        -0.3166
+      ]
+    },
+    {
+      "node": "C12_Frame",
+      "id": "frame",
+      "centre": [
+        0.0,
+        0.435,
+        0.0
+      ]
+    }
+  ]
+}

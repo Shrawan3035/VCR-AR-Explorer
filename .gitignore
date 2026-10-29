@@ -1,0 +1,28 @@
+# Unity
+Unity/VCR-AR-Explorer/[Ll]ibrary/
+Unity/VCR-AR-Explorer/[Tt]emp/
+Unity/VCR-AR-Explorer/[Oo]bj/
+Unity/VCR-AR-Explorer/[Bb]uild/
+Unity/VCR-AR-Explorer/[Bb]uilds/
+Unity/VCR-AR-Explorer/[Ll]ogs/
+Unity/VCR-AR-Explorer/[Uu]ser[Ss]ettings/
+Unity/VCR-AR-Explorer/*.csproj
+Unity/VCR-AR-Explorer/*.sln
+Unity/VCR-AR-Explorer/.vs/
+Unity/logs/
+*.apk
+*.aab
+# Web
+web/node_modules/
+web/dist/
+# Python / misc
+__pycache__/
+*.pyc
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# generated copies (the GLB lives in web/public/models and Unity Assets/Models)
+model-generation/output/*.glb
+poster/poster.html
