@@ -138,7 +138,12 @@ export function ARPage() {
           <div className={`ar-status ${arState}`} role="status" aria-live="polite">
             {arState === 'checking' && 'Checking whether this device supports AR…'}
             {arState === 'supported' && '✓ AR is available on this device. Tap “View in your space”.'}
-            {arState === 'unsupported' && 'AR is not available in this browser/device. You can still rotate and zoom the model here, or use the full 3D Explorer.'}
+            {arState === 'unsupported' && (
+              <>
+                AR is not available in this browser/device. You can still rotate the model here, or{' '}
+                <Link to="/explore?overlay=1">see it over your camera feed</Link> (camera overlay, no surface tracking).
+              </>
+            )}
           </div>
           {arMsg && <p className="ar-msg" role="alert">{arMsg}</p>}
 

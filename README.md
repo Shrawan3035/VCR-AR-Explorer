@@ -56,6 +56,12 @@ Pages (hash routes, so they work on any static host): `#/` home · `#/explore` 3
 `#/components` library · `#/cycle` step-by-step cycle + schematic p–h sketch · `#/exploded` ·
 `#/about` methodology · `#/references` · `#/ar` WebAR. Deep link a part with `#/explore?c=compressor`.
 
+**Camera overlay** (`● Camera` button in the explorer, or `#/explore?overlay=1`): shows the rig over the live
+camera feed — the rear camera on phones, the webcam on laptops — with every explorer control still working.
+It works on devices without ARCore/Quick Look, but it is an overlay, **not surface-tracked AR**. The camera is
+requested only when the button is pressed; denied / missing / busy cameras show a message and the 3D view
+continues. Smoke test with Chromium's synthetic camera: `node web/scripts/test-camera-overlay.mjs`.
+
 Explorer features: tap/click picking that ignores drags and UI, single-part highlight, info panel with
 close / prev / next / zoom-to-part, ghost or isolate other parts, numbered callouts synced with the list,
 explode slider, conceptual flow arrows coloured by refrigerant state, cycle player, keyboard
@@ -124,7 +130,8 @@ tap to place, pinch/twist).
 
 **Native Android AR build:** install the *Android Build Support* module **with OpenJDK and Android SDK & NDK**
 in Unity Hub, then run `VCR.EditorTools.VCRBuildAndValidate.BuildAndroid` (or File ▸ Build Profiles ▸ Android).
-Requires an ARCore-supported phone. WebGL is not used (the module is not installed and is not needed – the
+Requires an ARCore-supported phone. This build was run successfully here: `Builds/Android/VCR-AR-Explorer.apk`
+(≈34 MB, not committed) — install with `adb install -r` and test on a real device. WebGL is not used (the module is not installed and is not needed – the
 website provides the browser experience).
 
 ## 5. Poster (four A3 landscape sheets)

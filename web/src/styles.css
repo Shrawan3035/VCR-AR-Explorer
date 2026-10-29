@@ -334,3 +334,14 @@ html.shot-mode .topbar, html.shot-mode .comp-list, html.shot-mode .toolbar, html
 html.shot-mode .explorer { grid-template-columns: 1fr; }
 html.shot-mode .app.full main { height: 100vh; }
 html.shot-mode .stage { background: transparent; }
+
+/* camera overlay mode: live video behind the transparent WebGL canvas */
+.cam-feed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; background: #000; }
+.stage.cam-on { background: #000; }
+.stage .viewer-host { z-index: 1; }
+.stage.cam-on .viewer-overlay .callout { background: rgba(251, 249, 243, 0.9); }
+.tool-cam { border-color: var(--red); color: var(--red); }
+.tool-cam.on { background: var(--red); border-color: var(--red); color: #fff; }
+.cam-hint { position: absolute; left: 12px; bottom: 84px; z-index: 3; font: 500 0.78rem var(--mono); color: #fff; background: rgba(19, 33, 58, 0.78); padding: 5px 10px; border-radius: 4px; max-width: calc(100% - 24px); }
+.cam-error { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 7; display: flex; gap: 10px; align-items: center; max-width: min(560px, calc(100% - 24px)); background: #fff3f0; border: 1.5px solid var(--red); color: #8a2a1b; padding: 8px 8px 8px 14px; border-radius: 8px; font-size: 0.88rem; box-shadow: var(--shadow); }
+@media (max-width: 860px) { .cam-hint { bottom: 150px; } }

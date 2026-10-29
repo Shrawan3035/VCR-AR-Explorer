@@ -26,3 +26,5 @@ Thumbs.db
 # generated copies (the GLB lives in web/public/models and Unity Assets/Models)
 model-generation/output/*.glb
 poster/poster.html
+web/camera-overlay-test.png
+web/*.tsbuildinfo

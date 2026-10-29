@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Viewer3D } from '../components/Viewer3D';
 import { InfoPanel } from '../components/InfoPanel';
+import { useCameraFeed } from '../components/useCameraFeed';
 import type { VCRViewer, VisibilityMode } from '../viewer/VCRViewer';
 import { byId, components, stages, stateColor, stateLabel, type FlowState } from '../data';
 
@@ -27,6 +28,15 @@ export function Explorer({ initialExplode = 0, heading = '3D Explorer' }: Props)
   const [stage, setStage] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
   const [listOpen, setListOpen] = useState(false);
+  const camera = useCameraFeed();
+  const camOn = camera.state === 'on';
+
+  // camera overlay: hide the floor grid so the rig sits on the live video
+  useEffect(() => viewer.current?.setGrid(!camOn), [camOn, ready]);
+  useEffect(() => {
+    // opened from the AR page's "camera overlay" link (a user click), so starting right away is expected
+    if (ready && params.get('overlay') === '1') camera.start();
+  }, [ready]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!ready || !viewer.current) return;
@@ -141,7 +151,8 @@ export function Explorer({ initialExplode = 0, heading = '3D Explorer' }: Props)
         </div>
       </aside>
 
-      <div className="stage">
+      <div className={`stage ${camOn ? 'cam-on' : ''}`}>
+        <video ref={camera.videoRef} className="cam-feed" playsInline muted aria-hidden="true" hidden={!camOn} />
         <Viewer3D
           ref={viewer}
           onSelect={choose}
@@ -171,6 +182,15 @@ export function Explorer({ initialExplode = 0, heading = '3D Explorer' }: Props)
           <div className="tool-group">
             <button className={`tool ${labels ? 'on' : ''}`} aria-pressed={labels} onClick={() => setLabels(!labels)}>Labels</button>
             <button className={`tool ${flow ? 'on' : ''}`} aria-pressed={flow} onClick={() => setFlow(!flow)}>Flow</button>
+            <button
+              className={`tool tool-cam ${camOn ? 'on' : ''}`}
+              aria-pressed={camOn}
+              disabled={camera.state === 'starting'}
+              onClick={() => (camOn ? camera.stop() : camera.start())}
+              title="Show the rig over your live camera feed"
+            >
+              {camOn ? '■ Stop camera' : camera.state === 'starting' ? 'Starting…' : '● Camera'}
+            </button>
             <label className="tool select-tool">
               <span className="sr-only">Other parts</span>
               <select value={mode} onChange={(e) => setMode(e.target.value as VisibilityMode)} aria-label="How to show the other parts">
@@ -204,7 +224,14 @@ export function Explorer({ initialExplode = 0, heading = '3D Explorer' }: Props)
             onFocus={() => viewer.current?.focus(info.id)}
           />
         )}
-        {!info && ready && (
+        {camera.error && (
+          <div className="cam-error" role="alert">
+            <span>{camera.error}</span>
+            <button className="icon-btn" onClick={camera.clearError} aria-label="Dismiss camera message">✕</button>
+          </div>
+        )}
+        {camOn && !info && <div className="cam-hint">camera overlay · drag to turn · scroll / pinch to resize · tap a part · not surface-tracked — use AR for that</div>}
+        {!info && ready && !camOn && (
           <div className="hint" aria-live="polite">
             Drag to rotate · scroll / pinch to zoom · right-drag or two fingers to pan · <strong>tap a part</strong> to learn about it.{' '}
             <Link to="/ar">Try it in AR →</Link>
