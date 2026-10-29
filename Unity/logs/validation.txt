@@ -1,0 +1,31 @@
+VALIDATION PASSED  (2026-10-29 20:39)
+PASS  GLB imported as model asset: Assets/Models/VCR_System.glb
+PASS  VCRDatabase parses components.json
+PASS  12 component records (found 12)
+PASS  4 cycle stages
+PASS  7 flow segments (found 7)
+PASS  Scene in build settings: MainMenu
+PASS  Scene in build settings: VCRExplorer
+PASS  Scene in build settings: VCR_AR
+PASS  VCRExplorer contains a VCRModelBinder
+PASS  All component nodes found in model
+PASS  C01_Compressor → 'compressor' (1 renderers, 1 colliders)
+PASS  C02_Condenser → 'condenser' (1 renderers, 1 colliders)
+PASS  C03_ExpansionValve → 'expansion_valve' (1 renderers, 1 colliders)
+PASS  C04_Evaporator → 'evaporator' (1 renderers, 1 colliders)
+PASS  C05_ReceiverDrier → 'receiver_drier' (1 renderers, 1 colliders)
+PASS  C06_CondenserFan → 'condenser_fan' (2 renderers, 2 colliders)
+PASS  C07_EvaporatorFan → 'evaporator_fan' (2 renderers, 2 colliders)
+PASS  C08_DischargeLine → 'discharge_line' (1 renderers, 1 colliders)
+PASS  C09_LiquidLine → 'liquid_line' (1 renderers, 1 colliders)
+PASS  C10_SuctionLine → 'suction_line' (1 renderers, 1 colliders)
+PASS  C11_PressureGauges → 'pressure_gauges' (1 renderers, 1 colliders)
+PASS  C12_Frame → 'frame' (1 renderers, 1 colliders)
+PASS  Raycast from the front selects the compressor
+PASS  VCRExplorer has SelectionManager
+PASS  VCRExplorer has ExplodeController
+PASS  VCRExplorer has FlowAnimator
+PASS  VCRExplorer has CycleController
+PASS  VCRExplorer has LabelManager
+PASS  VCRExplorer has VCRExplorerUI
+PASS  VCRExplorer has OrbitCameraController

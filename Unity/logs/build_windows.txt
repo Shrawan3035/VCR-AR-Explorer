@@ -1,0 +1,6 @@
+result=Succeeded
+errors=0
+warnings=4
+size=102770543
+output=C:/Shrawan/academics/BTECH/7TH SEM/ARVR/AR/VCR-AR-Explorer/Unity/VCR-AR-Explorer/Builds/Windows/VCR-AR-Explorer.exe
+time=00:00:20.3464621

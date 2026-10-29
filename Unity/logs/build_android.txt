@@ -1,0 +1,6 @@
+result=Succeeded
+errors=0
+warnings=7
+size=769854008
+output=C:/Shrawan/academics/BTECH/7TH SEM/ARVR/AR/VCR-AR-Explorer/Unity/VCR-AR-Explorer/Builds/Android/VCR-AR-Explorer.apk
+time=00:05:15.3010854

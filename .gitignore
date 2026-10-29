@@ -28,3 +28,4 @@ model-generation/output/*.glb
 poster/poster.html
 web/camera-overlay-test.png
 web/*.tsbuildinfo
+Unity/VCR-AR-Explorer/.utmp/

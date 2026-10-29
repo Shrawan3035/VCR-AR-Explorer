@@ -1,0 +1,6 @@
+URP asset: Assets/Settings/VCR_URP.asset
+Materials: 23 (Brass, Chrome, CompressorPaint, Copper, GalvanisedSteel, PlasticDark, Rubber, AluminiumFin, AluminiumFinBlue, DrierPaint, Glass, FanBlade, Insulation, AccentBlue, AccentRed, GaugeFace, AluminiumExtrusion, FramePaint, PanelPaint, __Ghost, __Arrow, __Floor, __Plane)
+Rig: 12 components bound, 48 material slots remapped, missing: []
+Android: IL2CPP, ARM64, min API 26, OpenGLES3
+ARCore loader for Android assigned: True
+URP configured: True
