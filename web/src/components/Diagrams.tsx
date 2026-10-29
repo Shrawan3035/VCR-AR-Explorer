@@ -113,7 +113,7 @@ export function PhSketch() {
   const x2 = x1 + 70;
   const d = (c: P[]) => `M${c[0]} C${c[1]} ${c[2]} ${c[3]}`;
   return (
-    <svg className="diagram" viewBox="0 0 520 360" role="img" aria-labelledby="ph-title ph-desc">
+    <svg className="diagram" viewBox="0 0 560 360" role="img" aria-labelledby="ph-title ph-desc">
       <title id="ph-title">Schematic pressure–enthalpy diagram of the ideal VCR cycle</title>
       <desc id="ph-desc">Qualitative sketch only, not to scale and not based on measured data.</desc>
       <defs>
@@ -121,9 +121,9 @@ export function PhSketch() {
           <path d="M0,0 L10,5 L0,10 z" fill="var(--copper)" />
         </marker>
       </defs>
-      <path d="M40 20 V320 H500" className="axis" />
+      <path d="M40 20 V320 H540" className="axis" />
       <text x="16" y="170" className="ax-t" transform="rotate(-90 16 170)">Pressure p (log scale)</text>
-      <text x="240" y="346" className="ax-t" textAnchor="middle">Specific enthalpy h →</text>
+      <text x="290" y="346" className="ax-t" textAnchor="middle">Specific enthalpy h →</text>
       <path d={d(DOME[0]) + ' ' + d(DOME[1]).replace('M', 'L')} className="dome" />
       <text x="96" y="296" className="dome-t">sat. liquid</text>
       <text x="318" y="296" className="dome-t">sat. vapour</text>
@@ -146,7 +146,7 @@ export function PhSketch() {
       <text x={(x1 + x3) / 2} y={yL + 20} className="ph-l" textAnchor="middle">4→1 evaporation</text>
       <text x={x2 + 6} y={(yH + yL) / 2} className="ph-l">1→2 compression</text>
       <text x={x3 + 6} y={(yH + yL) / 2} className="ph-l">3→4 throttling</text>
-      <text x="500" y="34" className="ph-note" textAnchor="end">SCHEMATIC · NOT TO SCALE · NO MEASURED DATA</text>
+      <text x="540" y="34" className="ph-note" textAnchor="end">SCHEMATIC · NOT TO SCALE · NO MEASURED DATA</text>
     </svg>
   );
 }

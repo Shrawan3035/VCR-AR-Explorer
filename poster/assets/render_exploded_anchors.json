@@ -1,0 +1,138 @@
+{
+ "width": 1400,
+ "height": 1000,
+ "parts": {
+  "compressor": {
+   "anchor": [
+    487,
+    513
+   ],
+   "centre": [
+    492,
+    652
+   ],
+   "visible": true
+  },
+  "condenser": {
+   "anchor": [
+    398,
+    320
+   ],
+   "centre": [
+    403,
+    410
+   ],
+   "visible": true
+  },
+  "expansion_valve": {
+   "anchor": [
+    809,
+    293
+   ],
+   "centre": [
+    807,
+    394
+   ],
+   "visible": true
+  },
+  "evaporator": {
+   "anchor": [
+    1137,
+    365
+   ],
+   "centre": [
+    1129,
+    479
+   ],
+   "visible": true
+  },
+  "receiver_drier": {
+   "anchor": [
+    637,
+    545
+   ],
+   "centre": [
+    637,
+    613
+   ],
+   "visible": true
+  },
+  "condenser_fan": {
+   "anchor": [
+    554,
+    185
+   ],
+   "centre": [
+    556,
+    264
+   ],
+   "visible": true
+  },
+  "evaporator_fan": {
+   "anchor": [
+    1074,
+    441
+   ],
+   "centre": [
+    1068,
+    553
+   ],
+   "visible": true
+  },
+  "discharge_line": {
+   "anchor": [
+    635,
+    415
+   ],
+   "centre": [
+    635,
+    415
+   ],
+   "visible": false
+  },
+  "liquid_line": {
+   "anchor": [
+    723,
+    500
+   ],
+   "centre": [
+    723,
+    500
+   ],
+   "visible": false
+  },
+  "suction_line": {
+   "anchor": [
+    768,
+    508
+   ],
+   "centre": [
+    768,
+    508
+   ],
+   "visible": false
+  },
+  "pressure_gauges": {
+   "anchor": [
+    790,
+    207
+   ],
+   "centre": [
+    790,
+    239
+   ],
+   "visible": true
+  },
+  "frame": {
+   "anchor": [
+    734,
+    214
+   ],
+   "centre": [
+    733,
+    477
+   ],
+   "visible": true
+  }
+ }
+}

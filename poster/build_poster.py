@@ -220,10 +220,10 @@ def ph_svg():
     x3, x1 = x_at(dome[0], yH), x_at(dome[1], yL)
     x2 = x1 + 70
     d = lambda c: f"M{c[0][0]},{c[0][1]} C{c[1][0]},{c[1][1]} {c[2][0]},{c[2][1]} {c[3][0]},{c[3][1]}"
-    return f"""<svg viewBox="0 0 520 360" class="ph">
+    return f"""<svg viewBox="0 0 560 360" class="ph">
 <defs><marker id="pa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b8682f"/></marker></defs>
-<path d="M40 20 V320 H500" class="ax"/><text x="16" y="170" class="axt" transform="rotate(-90 16 170)" text-anchor="middle">Pressure p (log scale)</text>
-<text x="240" y="346" class="axt" text-anchor="middle">Specific enthalpy h →</text>
+<path d="M40 20 V320 H540" class="ax"/><text x="16" y="170" class="axt" transform="rotate(-90 16 170)" text-anchor="middle">Pressure p (log scale)</text>
+<text x="290" y="346" class="axt" text-anchor="middle">Specific enthalpy h →</text>
 <path d="{d(dome[0])} {d(dome[1]).replace("M", "L")}" class="dome"/>
 <text x="96" y="296" class="dt">sat. liquid</text><text x="318" y="296" class="dt">sat. vapour</text>
 <path d="M{x1:.1f} {yL} L{x2:.1f} {yH}" class="cy" marker-end="url(#pa)"/><path d="M{x2:.1f} {yH} L{x3:.1f} {yH}" class="cy" marker-end="url(#pa)"/>
@@ -234,7 +234,7 @@ def ph_svg():
 <text x="{(x1 + x3) / 2:.0f}" y="{yL + 20}" class="pl" text-anchor="middle">4→1 evaporation</text>
 <text x="{x2 + 6:.0f}" y="{(yH + yL) / 2}" class="pl">1→2 compression</text>
 <text x="{x3 + 6:.0f}" y="{(yH + yL) / 2}" class="pl">3→4 throttling</text>
-<text x="500" y="34" class="note" text-anchor="end">SCHEMATIC · NOT TO SCALE · NO MEASURED DATA</text></svg>"""
+<text x="540" y="34" class="note" text-anchor="end">SCHEMATIC · NOT TO SCALE · NO MEASURED DATA</text></svg>"""
 
 
 def sheet2(url):
@@ -270,19 +270,19 @@ def shot(name, label, cls=""):
 
 
 def sheet3(url):
-    arch = """<svg viewBox="0 0 600 250" class="arch">
+    arch = """<svg viewBox="0 0 600 262" class="arch">
 <defs><marker id="aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#13213a"/></marker></defs>
 <g class="ab"><rect x="10" y="20" width="150" height="60" rx="6"/><text x="85" y="45">generate_vcr_glb.py</text><text x="85" y="63" class="s">Python + numpy</text></g>
 <g class="ab hl"><rect x="10" y="150" width="150" height="70" rx="6"/><text x="85" y="176">VCR_System.glb</text><text x="85" y="194" class="s">12 named nodes</text><text x="85" y="208" class="s">+ components / flow JSON</text></g>
 <g class="ab"><rect x="240" y="10" width="160" height="62" rx="6"/><text x="320" y="35">Website</text><text x="320" y="53" class="s">React · TS · three.js</text></g>
-<g class="ab"><rect x="240" y="94" width="160" height="62" rx="6"/><text x="320" y="119">WebAR</text><text x="320" y="137" class="s">model-viewer: WebXR / Quick Look</text></g>
+<g class="ab"><rect x="240" y="94" width="160" height="62" rx="6"/><text x="320" y="119">WebAR</text><text x="320" y="137" class="s">model-viewer (WebXR, iOS)</text></g>
 <g class="ab"><rect x="240" y="178" width="160" height="62" rx="6"/><text x="320" y="203">Unity 6 (URP)</text><text x="320" y="221" class="s">glTFast · AR Foundation</text></g>
 <g class="ab"><rect x="450" y="40" width="140" height="62" rx="6"/><text x="520" y="65">GitHub Pages</text><text x="520" y="83" class="s">QR → public URL</text></g>
 <g class="ab"><rect x="450" y="160" width="140" height="62" rx="6"/><text x="520" y="185">A3 poster PDF</text><text x="520" y="203" class="s">HTML/SVG → PDF</text></g>
 <path d="M85 80 V146" class="aw" marker-end="url(#aa)"/><path d="M160 175 L236 45" class="aw" marker-end="url(#aa)"/><path d="M160 185 L236 125" class="aw" marker-end="url(#aa)"/>
 <path d="M160 200 L236 208" class="aw" marker-end="url(#aa)"/><path d="M400 45 L446 65" class="aw" marker-end="url(#aa)"/><path d="M400 125 L446 85" class="aw" marker-end="url(#aa)"/>
-<path d="M160 160 C 300 260, 380 250, 446 195" class="aw dash" marker-end="url(#aa)"/></svg>"""
-    unity = "unity_explorer.png" if has("unity_explorer.png") else None
+<path d="M85 220 C 120 262, 470 262, 515 226" class="aw dash" marker-end="url(#aa)"/></svg>"""
+    unity = "unity_cycle.png" if has("unity_cycle.png") else ("unity_explorer.png" if has("unity_explorer.png") else None)
     body = f"""
 <div class="s3">
   <div class="card c1"><h2><span class="cn">C1</span>Objective &amp; motivation</h2>
@@ -301,7 +301,7 @@ def sheet3(url):
     {shot("ui_explorer_desktop.png", "FIG. 3A · WEB EXPLORER (DESKTOP)", "wide")}
     {shot("ui_explorer_mobile.png", "FIG. 3B · PHONE", "tall")}
     {shot("ui_ar.png", "FIG. 3C · AR PAGE", "wide")}
-    {shot(unity, "FIG. 3D · UNITY BUILD (WINDOWS PLAYER)", "wide") if unity else shot("ui_cycle.png", "FIG. 3D · CYCLE PAGE", "wide")}
+    {shot(unity, "FIG. 3D · UNITY 6 PLAYER · CYCLE MODE", "span2") if unity else shot("ui_cycle.png", "FIG. 3D · CYCLE PAGE", "wide")}
   </div>
   <div class="card c4"><h2><span class="cn">C4</span>Applications &amp; limitations</h2>
     <div class="two"><div><h3>Use it for</h3><ul><li>Pre-lab briefing before running the real trainer</li><li>Self-study and revision on a phone</li><li>Explaining HVAC systems to non-specialists</li></ul></div>
@@ -448,7 +448,7 @@ svg.schem, svg.ph {{ width: 100%; height: auto; display: block; }}
 .ht {{ font: 600 12px Plex; fill: #1b2537; }} .ht.hp {{ fill: #d2402a; }} .ht.lp {{ fill: #1592b0; }}
 .pt {{ fill: #fff; stroke: #1b2537; stroke-width: 1.5; }} .ptn {{ font: 600 12px Plex; text-anchor: middle; }} .ptt {{ font: 400 11px Plex; fill: #5d6677; }}
 .blk rect {{ fill: #fbf9f3; stroke: #13213a; stroke-width: 2.2; }} .blk circle {{ fill: #fff; stroke: #b8682f; stroke-width: 2.4; }}
-.bn {{ font: 600 13px Plex; text-anchor: middle; fill: #b8682f; }} .bt {{ font: 800 17px Archivo; fill: #13213a; }}
+.bn {{ font: 600 13px Plex; text-anchor: middle; fill: #b8682f; }} .bt {{ font: 800 15.5px Archivo; fill: #13213a; }}
 .ax {{ fill: none; stroke: #1b2537; stroke-width: 1.5; }} .axt {{ font: 400 12px Plex; }}
 .dome {{ fill: rgba(21,146,176,.07); stroke: #13213a; stroke-width: 2; }} .dt {{ font: 400 10px Plex; fill: #5d6677; }}
 .cy {{ stroke: #b8682f; stroke-width: 3; fill: none; }} .pn {{ font: 600 13px Plex; }} .pl {{ font: 400 10.5px Plex; }}
@@ -464,6 +464,7 @@ svg.schem, svg.ph {{ width: 100%; height: auto; display: block; }}
 .shot {{ padding: 6mm 2mm 2mm; display: flex; min-height: 0; }}
 .shot img {{ width: 100%; height: 100%; object-fit: contain; min-height: 0; }}
 .shot.tall {{ grid-column: 3; grid-row: 1 / span 2; }}
+.shot.span2 {{ grid-column: 1 / span 2; }}
 .s3 .c4 {{ grid-column: 3; grid-row: 2; font-size: 2.9mm; line-height: 1.38; }}
 .two {{ display: grid; grid-template-columns: 1fr; gap: 2mm; }}
 .two h3 {{ font-size: 3.6mm; margin: 1mm 0 .5mm; }}

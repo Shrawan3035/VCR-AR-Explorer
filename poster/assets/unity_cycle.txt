@@ -1,0 +1,5 @@
+scene=VCRExplorer
+bound=True
+parts=12
+missing=
+selected=condenser

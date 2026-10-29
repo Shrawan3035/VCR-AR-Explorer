@@ -154,7 +154,7 @@ nav .icon-btn { margin-left: 6px; }
 .blk rect { fill: var(--card); stroke: var(--navy); stroke-width: 2; }
 .blk .blk-num { fill: #fff; stroke: var(--navy); stroke-width: 2; }
 .blk-n { font: 700 13px var(--mono); text-anchor: middle; fill: var(--navy); }
-.blk-t { font: 800 16px var(--font); fill: var(--navy); }
+.blk-t { font: 800 15px var(--font); fill: var(--navy); }
 .blk.clickable { cursor: pointer; }
 .blk.clickable:hover rect, .blk:focus-visible rect { stroke: var(--copper); }
 .blk.active rect { fill: var(--navy); }

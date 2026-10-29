@@ -1,0 +1,47 @@
+{
+ "file": "VCR-AR-Explorer-A3.pdf",
+ "pages": 4,
+ "sizes_mm": [
+  [
+   420.0,
+   297.0
+  ],
+  [
+   420.0,
+   297.0
+  ],
+  [
+   420.0,
+   297.0
+  ],
+  [
+   420.0,
+   297.0
+  ]
+ ],
+ "qr": {
+  "sheet1": [
+   "https://shrawan3035.github.io/VCR-AR-Explorer/"
+  ],
+  "sheet2": [
+   "https://shrawan3035.github.io/VCR-AR-Explorer/"
+  ],
+  "sheet3": [
+   "https://shrawan3035.github.io/VCR-AR-Explorer/"
+  ],
+  "sheet4": [
+   "https://shrawan3035.github.io/VCR-AR-Explorer/",
+   "https://shrawan3035.github.io/VCR-AR-Explorer/#/ar"
+  ]
+ },
+ "ok": true,
+ "header_qr": {
+  "sheet1": "https://shrawan3035.github.io/VCR-AR-Explorer/",
+  "sheet2": "https://shrawan3035.github.io/VCR-AR-Explorer/",
+  "sheet3": "https://shrawan3035.github.io/VCR-AR-Explorer/",
+  "sheet4": "https://shrawan3035.github.io/VCR-AR-Explorer/"
+ },
+ "qr_sheet4_matches_targets": true,
+ "qr_all_found_values_valid": true,
+ "header_qr_all_sheets": true
+}

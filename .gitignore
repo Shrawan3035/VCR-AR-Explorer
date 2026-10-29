@@ -9,7 +9,7 @@ Unity/VCR-AR-Explorer/[Uu]ser[Ss]ettings/
 Unity/VCR-AR-Explorer/*.csproj
 Unity/VCR-AR-Explorer/*.sln
 Unity/VCR-AR-Explorer/.vs/
-Unity/logs/
+Unity/logs/*.log
 *.apk
 *.aab
 # Web

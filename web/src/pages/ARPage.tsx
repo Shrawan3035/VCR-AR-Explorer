@@ -68,6 +68,8 @@ export function ARPage() {
   const src = asset(variant === 'assembled' ? 'models/VCR_System.glb' : 'models/VCR_System_Exploded.glb');
   const anc = (anchors as Record<Variant, Record<string, { top: number[] }>>)[variant];
   const info = byId(picked);
+  // portrait phones crop the wide rig horizontally, so start further out
+  const narrow = typeof window !== 'undefined' && window.innerWidth / Math.max(1, window.innerHeight) < 0.8;
 
   return (
     <div className="page ar-page">
@@ -96,8 +98,7 @@ export function ARPage() {
               shadow-intensity="1"
               exposure="1"
               environment-image="neutral"
-              camera-orbit="35deg 70deg 2.1m"
-              camera-target="0m 0.4m 0m"
+              camera-orbit={`35deg 70deg ${narrow ? 175 : 105}%`}
               interaction-prompt="auto"
               style={{ width: '100%', height: '100%' }}
             >
