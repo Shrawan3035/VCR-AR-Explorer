@@ -44,6 +44,8 @@ namespace VCR
                 var names = string.Join("\n", System.Array.ConvertAll(lab.team, m => $"<b>{m.name}</b>  <color=#5d6677>{m.roll}</color>"));
                 UIFactory.Label(panel, $"<color=#b8682f><b>PROJECT BY - {lab.branch?.ToUpperInvariant()}</b></color>\n{names}", 18, VCRColors.Navy);
             }
+            if (!string.IsNullOrEmpty(lab?.guide))
+                UIFactory.Label(panel, $"<color=#b8682f><b>GUIDE</b></color>  {lab.guide}\n<color=#5d6677>{lab.institution}</color>", 16, VCRColors.Navy);
             _message = UIFactory.Label(panel, "", 16, VCRColors.Red);
             UIFactory.Label(panel, "Educational visualisation - not CAD. No measured data is shown.", 14, VCRColors.Muted);
         }

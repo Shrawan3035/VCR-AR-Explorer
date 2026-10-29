@@ -114,7 +114,8 @@ def prepared_cell():
     if not TEAM:
         return ""
     names = "".join(f'<span class="tb-name">{E(m["name"])} <i>{E(m["roll"])}</i></span>' for m in TEAM)
-    return f'<td class="tb-by"><small>PREPARED BY · {E(BRANCH).upper()}</small>{names}</td>'
+    guide = f'<td class="tb-guide"><small>GUIDED BY</small><span class="tb-name">{E(LAB["guide"])}</span><i class="tb-inst">ME Dept · COEP Tech, Pune</i></td>' if LAB.get("guide") else ""
+    return f'<td class="tb-by"><small>PREPARED BY · {E(BRANCH).upper()}</small>{names}</td>{guide}'
 
 
 def frame(sheet, title_block, body, section, title, sub, qr_url):
@@ -130,7 +131,7 @@ def frame(sheet, title_block, body, section, title, sub, qr_url):
       <div class="brandblock">
         <div class="drg">DRG. NO. VCR-001 · SHEET {sheet} / 4</div>
         <div class="logo">VCR<span>/</span>AR</div>
-        <div class="inst">BRANCH: {E(BRANCH).upper()} · {E(LAB["institution"]).upper()}</div>
+        <div class="inst">{E(LAB["institution"]).upper()}<br>{E(BRANCH).upper()} · GUIDE: {E(LAB["guide"]).upper()}</div>
       </div>
       <div class="titleblock">
         <div class="eyebrow">{E(section)}</div>
@@ -376,7 +377,7 @@ body {{ font-family: Archivo, sans-serif; color: #1b2537; -webkit-print-color-ad
 .zy {{ top: 9mm; bottom: 9mm; width: 5mm; }} .zy.left {{ left: 3mm; }} .zy.right {{ right: 2mm; }}
 .zy span {{ position: absolute; transform: translateY(-50%); }}
 .inner {{ position: absolute; inset: 8mm; border: .7mm solid #13213a; outline: .3mm solid #13213a; outline-offset: 1.4mm; padding: 6mm 9mm 4mm; display: flex; flex-direction: column; }}
-.head {{ display: grid; grid-template-columns: 78mm 1fr 70mm; gap: 7mm; align-items: center; border-bottom: .6mm solid #13213a; padding-bottom: 4mm; }}
+.head {{ display: grid; grid-template-columns: 96mm 1fr 70mm; gap: 7mm; align-items: center; border-bottom: .6mm solid #13213a; padding-bottom: 4mm; }}
 .drg {{ display: inline-block; background: #13213a; color: #fff; font: 600 2.6mm Plex, monospace; letter-spacing: .12em; padding: 1.2mm 2.5mm; }}
 .logo {{ font: 800 15mm/1 Archivo; color: #13213a; letter-spacing: -.02em; text-shadow: -.9mm 0 0 #1592b0, .9mm 0 0 #d2402a; margin: 2mm 0 1mm; }}
 .logo span {{ color: #b8682f; text-shadow: none; }}
@@ -395,10 +396,12 @@ h1 {{ font: 800 13mm/1.02 Archivo; color: #13213a; margin: 1mm 0 1.5mm; letter-s
 .body {{ flex: 1; padding-top: 5mm; min-height: 0; overflow: hidden; }}
 .body > div {{ height: 100%; }}
 .foot {{ display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; padding-top: 2mm; }}
-.credit {{ font: 400 2.3mm/1.4 Plex, monospace; color: #5d6677; margin: 0; max-width: 190mm; }}
+.credit {{ font: 400 2.2mm/1.4 Plex, monospace; color: #5d6677; margin: 0; max-width: 128mm; }}
+.tb td.tb-guide {{ min-width: 48mm; font-size: 3mm; line-height: 1.25; }}
+.tb-inst {{ display: block; font: 400 2.2mm Plex, monospace; font-style: normal; color: #5d6677; }}
 .tb {{ border-collapse: collapse; border: .5mm solid #13213a; background: #fbf9f3; font: 600 3.4mm Archivo; color: #13213a; }}
 .tb td {{ border-left: .3mm solid #13213a; padding: 1.2mm 3mm; min-width: 22mm; }}
-.tb td.tb-t {{ min-width: 78mm; border-left: 0; }}
+.tb td.tb-t {{ min-width: 70mm; border-left: 0; }}
 .tb td.tb-by {{ min-width: 62mm; font-size: 3mm; line-height: 1.25; }}
 .tb-name {{ display: block; white-space: nowrap; }}
 .tb-name i {{ font: 400 2.5mm Plex, monospace; font-style: normal; color: #5d6677; margin-left: 1mm; }}

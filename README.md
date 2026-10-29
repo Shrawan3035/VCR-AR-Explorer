@@ -1,5 +1,9 @@
 # VCR AR Explorer
 
+**Team:** Shrawan Kolekar (612302029) · Archit Shelar (612302057) — Robotics & AI  
+**Guide:** Dr. Shubhangi Deshmukh · Mechanical Engineering Department, COEP Tech, Pune  
+**Live site:** https://shrawan3035.github.io/VCR-AR-Explorer/
+
 Interactive 3D / AR learning module for a **Vapour Compression Refrigeration (VCR)** system:
 an original procedurally generated 3D rig, a QR-accessible website with tap-to-learn components and
 install-free WebAR, a Unity 6 project (URP + AR Foundation), and a four-sheet A3 poster.

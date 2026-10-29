@@ -53,6 +53,8 @@ export const project = raw as unknown as {
 export const components = project.components;
 export const team = project.labData.team ?? [];
 export const branch = project.labData.branch ?? '';
+export const guide = project.labData.guide ?? '';
+export const institution = project.labData.institution ?? '';
 export const teamLine = team.map((m) => `${m.name} (${m.roll})`).join(' · ');
 export const stages = project.stages;
 export const flowSegments = (flowRaw as unknown as { segments: FlowSegment[] }).segments;

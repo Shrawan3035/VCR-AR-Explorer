@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CycleSchematic, PhSketch } from '../components/Diagrams';
-import { asset, branch, components, PDF_URL, project, stages, team } from '../data';
+import { asset, branch, components, guide, institution, PDF_URL, project, stages, team } from '../data';
 
 const MAIN = components.filter((c) => c.main).sort((a, b) => a.number - b.number);
 
@@ -29,6 +29,7 @@ export function Home() {
               <span key={m.roll} className="team-chip">{m.name} <span className="mono">{m.roll}</span></span>
             ))}
           </p>
+          <p className="tiny muted">Guide: <strong>{guide}</strong> · {institution}</p>
         </div>
         <Link to="/explore" className="hero-img" aria-label="Open the 3D explorer">
           <img src={asset('img/hero.png')} alt="Rendered 3D model of the refrigeration rig with its compressor, finned coils, fans and copper pipework" loading="eager" />

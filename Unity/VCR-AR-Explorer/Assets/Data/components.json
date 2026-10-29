@@ -15,7 +15,7 @@
     "condensingPressure": "[measured — bar]",
     "evaporatingPressure": "[measured — bar]",
     "copMeasured": "[to be calculated from lab readings]",
-    "institution": "[Institution / Department]",
+    "institution": "Mechanical Engineering Department, COEP Tech, Pune",
     "authors": "Shrawan Kolekar (612302029), Archit Shelar (612302057)",
     "team": [
       {
@@ -28,7 +28,7 @@
       }
     ],
     "branch": "Robotics & AI",
-    "guide": "[Guide / Faculty name]"
+    "guide": "Dr. Shubhangi Deshmukh"
   },
   "stages": [
     {

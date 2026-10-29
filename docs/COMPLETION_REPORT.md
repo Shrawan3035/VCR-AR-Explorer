@@ -1,5 +1,7 @@
 # Completion report — VCR AR Explorer
 
+Team: Shrawan Kolekar (612302029), Archit Shelar (612302057) · Branch: Robotics & AI · Guide: Dr. Shubhangi Deshmukh · Mechanical Engineering Department, COEP Tech, Pune
+
 Date: 2026-10-29 · Machine: Windows 11, Unity 6000.5.9f1, Node 26, Python 3.14, no Blender.
 
 **Live site:** https://shrawan3035.github.io/VCR-AR-Explorer/ (AR route `#/ar`)
@@ -32,7 +34,7 @@ Date: 2026-10-29 · Machine: Windows 11, Unity 6000.5.9f1, Node 26, Python 3.14,
 * **Real multi-touch gestures** — pinch/two-finger pan in the web viewer use three.js OrbitControls; Unity touch code is written for both input systems but was only exercised with a mouse.
 * **Native Android APK** — builds, but has not been installed on a phone; plane detection, tap-to-place and pinch/twist need an ARCore device.
 * **Camera overlay with a real camera** — tested only with Chromium's synthetic camera; try it on your laptop webcam and phone. It is not surface-tracked (the rig does not stick to a table) — that is what the AR button is for.
-* **Lab data** — refrigerant, compressor rating, pressures and COP are placeholders in `data/components.json → labData` (also shown on Sheet 1). Author, guide and institution are placeholders too. Fill them in, then re-run `python poster/build_poster.py --url …`, `node poster/print_poster.mjs`, `python poster/verify_poster.py`.
+* **Lab data** — refrigerant, compressor rating, pressures and COP are still placeholders in `data/components.json → labData` (shown on Sheet 1) because nothing was measured. Team (Shrawan Kolekar 612302029, Archit Shelar 612302057), branch (Robotics & AI), guide (Dr. Shubhangi Deshmukh) and institution (Mechanical Engineering Department, COEP Tech, Pune) are filled in. After entering readings, re-run `python poster/build_poster.py --url …`, `node poster/print_poster.mjs`, `python poster/verify_poster.py`.
 
 ## Design decisions and honest limits
 

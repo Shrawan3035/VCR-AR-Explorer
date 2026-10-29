@@ -3,7 +3,7 @@ import { HashRouter, NavLink, Route, Routes, useLocation } from 'react-router-do
 import { Explorer } from './pages/Explorer';
 import { ARPage } from './pages/ARPage';
 import { About, ComponentLibrary, Cycle, Home, References } from './pages/Pages';
-import { PDF_URL, branch, teamLine } from './data';
+import { PDF_URL, branch, guide, institution, teamLine } from './data';
 
 const NAV = [
   ['/', 'Home'],
@@ -69,7 +69,7 @@ function Shell() {
       </main>
       {!fullBleed && (
         <footer className="footer">
-          <p>VCR AR Explorer · {teamLine} · {branch}<br />Educational visualisation, not CAD · Original procedurally generated model</p>
+          <p>VCR AR Explorer · {teamLine} · {branch}<br />Guide: {guide} · {institution}<br />Educational visualisation, not CAD · Original procedurally generated model</p>
           <p className="mono">DRG. VCR-001 · SCALE NTS</p>
         </footer>
       )}

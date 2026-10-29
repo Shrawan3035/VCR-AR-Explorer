@@ -43,6 +43,13 @@ for i, pg in enumerate(doc):
     val, _, _ = det.detectAndDecode(crop)
     res.setdefault("header_qr", {})[f"sheet{i + 1}"] = val
     if val: found.add(val)
+    if i == doc.page_count - 1:
+        # sheet 4: decode each large code from its own half of the page as well
+        for x0, x1 in ((0.0, 0.5), (0.5, 1.0)):
+            hp = pg.get_pixmap(dpi=150, clip=pymupdf.Rect(pg.rect.width * x0, pg.rect.height * 0.18, pg.rect.width * x1, pg.rect.height * 0.8))
+            half = np.frombuffer(hp.samples, np.uint8).reshape(hp.h, hp.w, hp.n)[:, :, :3].copy()
+            v, _, _ = det.detectAndDecode(half)
+            if v: found.add(v)
     res["qr"][f"sheet{i + 1}"] = sorted(found)
 if doc.page_count != 4: res["ok"] = False
 if targets["url"]:
