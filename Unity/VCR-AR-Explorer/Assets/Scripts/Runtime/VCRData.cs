@@ -46,9 +46,26 @@ namespace VCR
     }
 
     [Serializable]
+    public class VCRTeamMember
+    {
+        public string name;
+        public string roll;
+    }
+
+    [Serializable]
+    public class VCRLabData
+    {
+        public string institution;
+        public string guide;
+        public string branch;
+        public VCRTeamMember[] team;
+    }
+
+    [Serializable]
     public class VCRProjectData
     {
         public string title;
+        public VCRLabData labData;
         public string disclaimer;
         public string[] cycleOrder;
         public VCRStageRecord[] stages;

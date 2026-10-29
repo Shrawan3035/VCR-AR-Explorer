@@ -345,3 +345,7 @@ html.shot-mode .stage { background: transparent; }
 .cam-hint { position: absolute; left: 12px; bottom: 84px; z-index: 3; font: 500 0.78rem var(--mono); color: #fff; background: rgba(19, 33, 58, 0.78); padding: 5px 10px; border-radius: 4px; max-width: calc(100% - 24px); }
 .cam-error { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 7; display: flex; gap: 10px; align-items: center; max-width: min(560px, calc(100% - 24px)); background: #fff3f0; border: 1.5px solid var(--red); color: #8a2a1b; padding: 8px 8px 8px 14px; border-radius: 8px; font-size: 0.88rem; box-shadow: var(--shadow); }
 @media (max-width: 860px) { .cam-hint { bottom: 150px; } }
+.team-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.team-line .eyebrow { margin: 0 4px 0 0; }
+.team-chip { border: 1.5px solid var(--navy); border-radius: 999px; padding: 4px 12px; font-weight: 600; font-size: 0.9rem; background: var(--card); }
+.team-chip .mono { color: var(--muted); font-size: 0.8rem; margin-left: 4px; }

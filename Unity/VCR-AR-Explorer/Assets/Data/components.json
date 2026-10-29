@@ -2,7 +2,12 @@
   "schemaVersion": 1,
   "title": "Vapour Compression Refrigeration (VCR) Demonstration Rig",
   "disclaimer": "Educational visualisation generated procedurally for this project. It is not a CAD model, is not dimensionally exact and does not represent a specific commercial product. Items marked 'illustrative' are typical accessories shown for teaching.",
-  "cycleOrder": ["evaporator", "compressor", "condenser", "expansion_valve"],
+  "cycleOrder": [
+    "evaporator",
+    "compressor",
+    "condenser",
+    "expansion_valve"
+  ],
   "labData": {
     "note": "Editable placeholders. Replace with values measured on your laboratory rig. Nothing here is a measured result.",
     "refrigerant": "[refrigerant type — to be filled from rig nameplate]",
@@ -11,7 +16,18 @@
     "evaporatingPressure": "[measured — bar]",
     "copMeasured": "[to be calculated from lab readings]",
     "institution": "[Institution / Department]",
-    "authors": "[Student names]",
+    "authors": "Shrawan Kolekar (612302029), Archit Shelar (612302057)",
+    "team": [
+      {
+        "name": "Shrawan Kolekar",
+        "roll": "612302029"
+      },
+      {
+        "name": "Archit Shelar",
+        "roll": "612302057"
+      }
+    ],
+    "branch": "Robotics & AI",
     "guide": "[Guide / Faculty name]"
   },
   "stages": [
@@ -54,7 +70,10 @@
   ],
   "components": [
     {
-      "id": "compressor", "number": 1, "node": "C01_Compressor", "main": true,
+      "id": "compressor",
+      "number": 1,
+      "node": "C01_Compressor",
+      "main": true,
       "name": "Compressor",
       "subtitle": "Hermetic reciprocating/rotary type (shown schematically)",
       "side": "Low-pressure inlet → high-pressure outlet",
@@ -65,10 +84,17 @@
       "cycleRole": "The 'pump' of the cycle: it creates the pressure difference between the high side and the low side and keeps refrigerant circulating.",
       "application": "Domestic refrigerators, window/split air-conditioners, water coolers and cold rooms all use a compressor of this kind.",
       "student": "Think of it as the heart of the fridge: it pumps refrigerant around and squeezes it so it gets hot enough to dump heat outside.",
-      "explode": [0, 0, 0.32]
+      "explode": [
+        0,
+        0,
+        0.32
+      ]
     },
     {
-      "id": "condenser", "number": 2, "node": "C02_Condenser", "main": true,
+      "id": "condenser",
+      "number": 2,
+      "node": "C02_Condenser",
+      "main": true,
       "name": "Condenser",
       "subtitle": "Air-cooled finned-tube coil",
       "side": "High-pressure side",
@@ -80,10 +106,17 @@
       "application": "The warm coil at the back of a fridge or the outdoor unit of a split air-conditioner.",
       "student": "This is where the heat taken out of the fridge is thrown away — that is why the back of a fridge feels warm.",
       "heat": "rejected",
-      "explode": [-0.30, 0.04, 0.10]
+      "explode": [
+        -0.3,
+        0.04,
+        0.1
+      ]
     },
     {
-      "id": "expansion_valve", "number": 3, "node": "C03_ExpansionValve", "main": true,
+      "id": "expansion_valve",
+      "number": 3,
+      "node": "C03_ExpansionValve",
+      "main": true,
       "name": "Expansion Device",
       "subtitle": "Thermostatic expansion valve with sensing bulb (a capillary tube is a common alternative)",
       "side": "High-pressure inlet → low-pressure outlet",
@@ -94,10 +127,17 @@
       "cycleRole": "Separates the high-pressure side from the low-pressure side and controls how much refrigerant enters the evaporator.",
       "application": "Capillary tubes in household refrigerators; thermostatic or electronic expansion valves in air-conditioners and cold storage.",
       "student": "Like spraying an aerosol can: the pressure drops suddenly and the spray feels cold.",
-      "explode": [0.10, 0.16, 0.22]
+      "explode": [
+        0.1,
+        0.16,
+        0.22
+      ]
     },
     {
-      "id": "evaporator", "number": 4, "node": "C04_Evaporator", "main": true,
+      "id": "evaporator",
+      "number": 4,
+      "node": "C04_Evaporator",
+      "main": true,
       "name": "Evaporator",
       "subtitle": "Finned-tube coil (blue-tinted fins used here only to tell it apart)",
       "side": "Low-pressure side",
@@ -109,10 +149,18 @@
       "application": "The cold plate or freezer coil in a refrigerator; the indoor coil of an air-conditioner.",
       "student": "The refrigerant 'boils' here while still cold, soaking up heat from the food or room — that is the cooling you feel.",
       "heat": "absorbed",
-      "explode": [0.28, 0.06, 0.05]
+      "explode": [
+        0.28,
+        0.06,
+        0.05
+      ]
     },
     {
-      "id": "receiver_drier", "number": 5, "node": "C05_ReceiverDrier", "main": false, "illustrative": true,
+      "id": "receiver_drier",
+      "number": 5,
+      "node": "C05_ReceiverDrier",
+      "main": false,
+      "illustrative": true,
       "name": "Receiver / Filter-Drier",
       "subtitle": "Illustrative accessory with sight glass",
       "side": "High-pressure (liquid line)",
@@ -123,98 +171,162 @@
       "cycleRole": "Protects the expansion device from blockage and the system from moisture.",
       "application": "Common in air-conditioning and commercial refrigeration systems.",
       "student": "A water filter for the refrigerant: it keeps the tiny valve from clogging.",
-      "explode": [0, 0.02, 0.36]
+      "explode": [
+        0,
+        0.02,
+        0.36
+      ]
     },
     {
-      "id": "condenser_fan", "number": 6, "node": "C06_CondenserFan", "main": false,
+      "id": "condenser_fan",
+      "number": 6,
+      "node": "C06_CondenserFan",
+      "main": false,
       "name": "Condenser Fan",
       "subtitle": "Axial fan and motor",
       "side": "Air side (high-pressure coil)",
       "function": "Forces ambient air through the condenser coil to carry heat away.",
       "principle": "Forced convection increases the rate of heat transfer from the fins to the air.",
-      "inlet": "Ambient air", "outlet": "Warmed air",
+      "inlet": "Ambient air",
+      "outlet": "Warmed air",
       "cycleRole": "Supports heat rejection at the condenser.",
       "application": "Outdoor units of air-conditioners, fan-cooled condensing units.",
       "student": "A fan that blows the heat away from the hot coil.",
-      "explode": [-0.10, 0.30, 0.0]
+      "explode": [
+        -0.1,
+        0.3,
+        0.0
+      ]
     },
     {
-      "id": "evaporator_fan", "number": 7, "node": "C07_EvaporatorFan", "main": false,
+      "id": "evaporator_fan",
+      "number": 7,
+      "node": "C07_EvaporatorFan",
+      "main": false,
       "name": "Evaporator Fan",
       "subtitle": "Axial fan and motor",
       "side": "Air side (low-pressure coil)",
       "function": "Circulates air from the cooled space across the evaporator coil.",
       "principle": "Forced convection increases heat transfer from the air to the cold fins.",
-      "inlet": "Warm air from the cooled space", "outlet": "Cooled air",
+      "inlet": "Warm air from the cooled space",
+      "outlet": "Cooled air",
       "cycleRole": "Supports heat absorption at the evaporator and distributes the cooling.",
       "application": "Frost-free refrigerators, indoor units of split air-conditioners, cold rooms.",
       "student": "It pushes room air over the cold coil so the cold spreads around.",
-      "explode": [0.30, 0.04, 0.30]
+      "explode": [
+        0.3,
+        0.04,
+        0.3
+      ]
     },
     {
-      "id": "discharge_line", "number": 8, "node": "C08_DischargeLine", "main": false,
+      "id": "discharge_line",
+      "number": 8,
+      "node": "C08_DischargeLine",
+      "main": false,
       "name": "Discharge Line",
       "subtitle": "Copper tube, compressor → condenser",
       "side": "High-pressure side",
       "function": "Carries hot, high-pressure vapour from the compressor to the condenser.",
       "principle": "Simple refrigerant pipe; the service port (illustrative) allows pressure measurement.",
-      "inlet": "High-pressure superheated vapour", "outlet": "High-pressure superheated vapour",
+      "inlet": "High-pressure superheated vapour",
+      "outlet": "High-pressure superheated vapour",
       "cycleRole": "Connects compression to heat rejection.",
       "application": "Present in every vapour compression system.",
       "student": "The hottest pipe in the system.",
-      "explode": [0, 0, 0], "line": true
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "line": true
     },
     {
-      "id": "liquid_line", "number": 9, "node": "C09_LiquidLine", "main": false,
+      "id": "liquid_line",
+      "number": 9,
+      "node": "C09_LiquidLine",
+      "main": false,
       "name": "Liquid Line",
       "subtitle": "Copper tube, condenser → receiver/drier → expansion device",
       "side": "High-pressure side",
       "function": "Carries high-pressure liquid refrigerant to the expansion device.",
       "principle": "Kept full of liquid so the expansion device is fed with liquid, not vapour.",
-      "inlet": "High-pressure liquid", "outlet": "High-pressure liquid",
+      "inlet": "High-pressure liquid",
+      "outlet": "High-pressure liquid",
       "cycleRole": "Connects heat rejection to throttling.",
       "application": "Present in every vapour compression system.",
       "student": "A warm pipe filled with liquid refrigerant.",
-      "explode": [0, 0, 0], "line": true
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "line": true
     },
     {
-      "id": "suction_line", "number": 10, "node": "C10_SuctionLine", "main": false,
+      "id": "suction_line",
+      "number": 10,
+      "node": "C10_SuctionLine",
+      "main": false,
       "name": "Suction Line (insulated)",
       "subtitle": "Evaporator → compressor",
       "side": "Low-pressure side",
       "function": "Returns low-pressure vapour from the evaporator to the compressor.",
       "principle": "Insulation limits unwanted heat gain and condensation on the cold pipe. The expansion valve's sensing bulb is clamped to this line.",
-      "inlet": "Low-pressure vapour", "outlet": "Low-pressure vapour",
+      "inlet": "Low-pressure vapour",
+      "outlet": "Low-pressure vapour",
       "cycleRole": "Connects the refrigerating effect to compression.",
       "application": "Present in every vapour compression system.",
       "student": "The cold, fat, insulated pipe going back to the compressor.",
-      "explode": [0, 0, 0], "line": true
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "line": true
     },
     {
-      "id": "pressure_gauges", "number": 11, "node": "C11_PressureGauges", "main": false, "illustrative": true,
+      "id": "pressure_gauges",
+      "number": 11,
+      "node": "C11_PressureGauges",
+      "main": false,
+      "illustrative": true,
       "name": "Pressure Gauges",
       "subtitle": "Illustrative high-side (red) and low-side (blue) gauges — no readings shown",
       "side": "Instrumentation",
       "function": "Indicate the high-side (condensing) and low-side (evaporating) pressures on a lab trainer.",
       "principle": "Bourdon-tube gauges deflect a needle in proportion to pressure.",
-      "inlet": "—", "outlet": "—",
+      "inlet": "—",
+      "outlet": "—",
       "cycleRole": "Used in the lab to observe the cycle and compute performance from measured data.",
       "application": "Laboratory trainers and service manifolds.",
       "student": "Red = high-pressure side, blue = low-pressure side. Record the readings from your own rig.",
-      "explode": [0, 0.12, 0.06]
+      "explode": [
+        0,
+        0.12,
+        0.06
+      ]
     },
     {
-      "id": "frame", "number": 12, "node": "C12_Frame", "main": false,
+      "id": "frame",
+      "number": 12,
+      "node": "C12_Frame",
+      "main": false,
       "name": "Trainer Frame & Panel",
       "subtitle": "Base, aluminium uprights and mounting board",
       "side": "Structure",
       "function": "Supports and positions all components for demonstration.",
       "principle": "Rigid base with rubber feet; brackets hold the coils, valve and receiver.",
-      "inlet": "—", "outlet": "—",
+      "inlet": "—",
+      "outlet": "—",
       "cycleRole": "Structural only — not part of the refrigerant circuit.",
       "application": "Laboratory demonstration rigs.",
       "student": "The board everything is mounted on.",
-      "explode": [0, 0, -0.06]
+      "explode": [
+        0,
+        0,
+        -0.06
+      ]
     }
   ]
 }

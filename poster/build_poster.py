@@ -27,6 +27,9 @@ DATA = json.load(open(os.path.join(ROOT, "data", "components.json"), encoding="u
 COMPS = sorted(DATA["components"], key=lambda c: c["number"])
 BYID = {c["id"]: c for c in COMPS}
 FONT = "../web/node_modules/@fontsource"
+LAB = DATA["labData"]
+TEAM = LAB.get("team", [])
+BRANCH = LAB.get("branch", "")
 E = html.escape
 
 
@@ -107,6 +110,13 @@ def figure(img, label, ids, cls=""):
 
 
 # ----------------------------------------------------------------------------- shared chrome
+def prepared_cell():
+    if not TEAM:
+        return ""
+    names = "".join(f'<span class="tb-name">{E(m["name"])} <i>{E(m["roll"])}</i></span>' for m in TEAM)
+    return f'<td class="tb-by"><small>PREPARED BY · {E(BRANCH).upper()}</small>{names}</td>'
+
+
 def frame(sheet, title_block, body, section, title, sub, qr_url):
     ticks_x = "".join(f'<span style="left:{(i + 0.5) * 12.5}%">{i + 1}</span>' for i in range(8))
     ticks_y = "".join(f'<span style="top:{(i + 0.5) * 100 / 6}%">{"ABCDEF"[i]}</span>' for i in range(6))
@@ -120,7 +130,7 @@ def frame(sheet, title_block, body, section, title, sub, qr_url):
       <div class="brandblock">
         <div class="drg">DRG. NO. VCR-001 · SHEET {sheet} / 4</div>
         <div class="logo">VCR<span>/</span>AR</div>
-        <div class="inst">{E(DATA["labData"]["institution"]).upper()} · REFRIGERATION &amp; AIR CONDITIONING LAB</div>
+        <div class="inst">BRANCH: {E(BRANCH).upper()} · {E(LAB["institution"]).upper()}</div>
       </div>
       <div class="titleblock">
         <div class="eyebrow">{E(section)}</div>
@@ -132,7 +142,7 @@ def frame(sheet, title_block, body, section, title, sub, qr_url):
     <main class="body">{body}</main>
     <footer class="foot">
       <p class="credit">{title_block["credit"]}</p>
-      <table class="tb"><tr><td class="tb-t"><small>TITLE</small><b>{E(title_block["title"])}</b></td><td><small>SHEET</small>{sheet} / 4</td><td><small>SCALE</small>NTS</td></tr></table>
+      <table class="tb"><tr><td class="tb-t"><small>TITLE</small><b>{E(title_block["title"])}</b></td>{prepared_cell()}<td><small>SHEET</small>{sheet} / 4</td><td><small>SCALE</small>NTS</td></tr></table>
     </footer>
   </div>
 </section>"""
@@ -332,7 +342,8 @@ def sheet4(url, ar_url):
       <p class="tiny">Works in modern browsers on phones, tablets and laptops. Nothing to install.</p>
       <p class="url"><small>OR TYPE</small>{disp(url)}</p></div></div>
   <div class="card info"><h3>Project</h3><table class="kv"><tr><th>Title</th><td>VCR AR Explorer — Vapour Compression Refrigeration in AR</td></tr>
-    <tr><th>Authors</th><td>{E(lab["authors"])}</td></tr><tr><th>Guide</th><td>{E(lab["guide"])}</td></tr><tr><th>Institution</th><td>{E(lab["institution"])}</td></tr></table></div>
+    <tr><th>Team</th><td>{"<br>".join(f"{E(m['name'])} · <span class='roll'>{E(m['roll'])}</span>" for m in TEAM) or E(lab["authors"])}</td></tr>
+    <tr><th>Branch</th><td>{E(BRANCH)}</td></tr><tr><th>Guide</th><td>{E(lab["guide"])}</td></tr><tr><th>Institution</th><td>{E(lab["institution"])}</td></tr></table></div>
   <div class="card refs"><h3>References &amp; credits</h3><ul>
     <li>C. P. Arora, <i>Refrigeration and Air Conditioning</i>, McGraw-Hill.</li>
     <li>W. F. Stoecker &amp; J. W. Jones, <i>Refrigeration and Air Conditioning</i>, McGraw-Hill.</li>
@@ -384,10 +395,14 @@ h1 {{ font: 800 13mm/1.02 Archivo; color: #13213a; margin: 1mm 0 1.5mm; letter-s
 .body {{ flex: 1; padding-top: 5mm; min-height: 0; overflow: hidden; }}
 .body > div {{ height: 100%; }}
 .foot {{ display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; padding-top: 2mm; }}
-.credit {{ font: 400 2.3mm/1.4 Plex, monospace; color: #5d6677; margin: 0; max-width: 250mm; }}
+.credit {{ font: 400 2.3mm/1.4 Plex, monospace; color: #5d6677; margin: 0; max-width: 190mm; }}
 .tb {{ border-collapse: collapse; border: .5mm solid #13213a; background: #fbf9f3; font: 600 3.4mm Archivo; color: #13213a; }}
 .tb td {{ border-left: .3mm solid #13213a; padding: 1.2mm 3mm; min-width: 22mm; }}
-.tb td.tb-t {{ min-width: 85mm; border-left: 0; }}
+.tb td.tb-t {{ min-width: 78mm; border-left: 0; }}
+.tb td.tb-by {{ min-width: 62mm; font-size: 3mm; line-height: 1.25; }}
+.tb-name {{ display: block; white-space: nowrap; }}
+.tb-name i {{ font: 400 2.5mm Plex, monospace; font-style: normal; color: #5d6677; margin-left: 1mm; }}
+.roll {{ font-family: Plex, monospace; font-size: .92em; color: #5d6677; }}
 .tb small {{ display: block; font: 400 2mm Plex, monospace; color: #5d6677; }}
 .card {{ background: #fbf9f3; border: .4mm solid #13213a; padding: 4mm; position: relative; }}
 .card h3 {{ font: 800 4.4mm Archivo; color: #13213a; margin: 0 0 2mm; }}

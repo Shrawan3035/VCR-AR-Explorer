@@ -38,6 +38,12 @@ namespace VCR
 #if !UNITY_WEBGL
             UIFactory.Button(panel, "Quit", Application.Quit, VCRColors.Paper, VCRColors.Navy, 20);
 #endif
+            var lab = database != null ? database.Data?.labData : null;
+            if (lab?.team != null && lab.team.Length > 0)
+            {
+                var names = string.Join("\n", System.Array.ConvertAll(lab.team, m => $"<b>{m.name}</b>  <color=#5d6677>{m.roll}</color>"));
+                UIFactory.Label(panel, $"<color=#b8682f><b>PROJECT BY - {lab.branch?.ToUpperInvariant()}</b></color>\n{names}", 18, VCRColors.Navy);
+            }
             _message = UIFactory.Label(panel, "", 16, VCRColors.Red);
             UIFactory.Label(panel, "Educational visualisation - not CAD. No measured data is shown.", 14, VCRColors.Muted);
         }

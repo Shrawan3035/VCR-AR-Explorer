@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CycleSchematic, PhSketch } from '../components/Diagrams';
-import { asset, components, PDF_URL, project, stages } from '../data';
+import { asset, branch, components, PDF_URL, project, stages, team } from '../data';
 
 const MAIN = components.filter((c) => c.main).sort((a, b) => a.number - b.number);
 
@@ -23,6 +23,12 @@ export function Home() {
             <a className="btn btn-ghost" href={PDF_URL} download>Download A3 poster (PDF)</a>
           </div>
           <p className="tiny muted">Works in modern browsers on phones, tablets and laptops. Nothing to install.</p>
+          <p className="team-line">
+            <span className="eyebrow">Project by · {branch}</span>
+            {team.map((m) => (
+              <span key={m.roll} className="team-chip">{m.name} <span className="mono">{m.roll}</span></span>
+            ))}
+          </p>
         </div>
         <Link to="/explore" className="hero-img" aria-label="Open the 3D explorer">
           <img src={asset('img/hero.png')} alt="Rendered 3D model of the refrigeration rig with its compressor, finned coils, fans and copper pipework" loading="eager" />
@@ -166,6 +172,12 @@ export function About() {
         <p className="eyebrow">Section D · The project</p>
         <h1>Project overview &amp; methodology</h1>
       </header>
+      <h2>Project team</h2>
+      <table className="tbl">
+        <thead><tr><th>Name</th><th>Roll no.</th></tr></thead>
+        <tbody>{team.map((m) => <tr key={m.roll}><td>{m.name}</td><td className="mono">{m.roll}</td></tr>)}</tbody>
+      </table>
+      <p className="small">Branch: <strong>{branch}</strong> · Guide: {lab.guide} · {lab.institution}</p>
       <h2>Objective</h2>
       <p>
         Make the vapour compression refrigeration cycle easier to understand by letting students explore a 3D, tappable model of a lab rig on any device, with optional augmented reality, from
@@ -184,8 +196,8 @@ export function About() {
       <p className="muted small">{lab.note}</p>
       <table className="tbl">
         <tbody>
-          {Object.entries(lab).filter(([k]) => k !== 'note').map(([k, v]) => (
-            <tr key={k}><th>{k.replace(/([A-Z])/g, ' $1').toLowerCase()}</th><td>{v}</td></tr>
+          {Object.entries(lab).filter(([k, v]) => !['note', 'authors', 'team', 'branch', 'guide', 'institution'].includes(k) && typeof v === 'string').map(([k, v]) => (
+            <tr key={k}><th>{k.replace(/([A-Z])/g, ' $1').toLowerCase()}</th><td>{String(v)}</td></tr>
           ))}
         </tbody>
       </table>
@@ -230,7 +242,7 @@ export function References() {
         visualisation, not a manufacturer's CAD model. The receiver/drier, sight glass, service port and pressure gauges are illustrative accessories.
       </p>
       <h2>Authors</h2>
-      <p>{project.labData.authors} · {project.labData.guide} · {project.labData.institution}</p>
+      <p>{team.map((m) => `${m.name} (${m.roll})`).join(', ')} · Branch: {branch} · {project.labData.guide} · {project.labData.institution}</p>
     </div>
   );
 }

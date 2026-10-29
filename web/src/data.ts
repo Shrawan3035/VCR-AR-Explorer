@@ -45,12 +45,15 @@ export const project = raw as unknown as {
   title: string;
   disclaimer: string;
   cycleOrder: string[];
-  labData: Record<string, string>;
+  labData: Record<string, string> & { team?: { name: string; roll: string }[] };
   stages: Stage[];
   components: ComponentInfo[];
 };
 
 export const components = project.components;
+export const team = project.labData.team ?? [];
+export const branch = project.labData.branch ?? '';
+export const teamLine = team.map((m) => `${m.name} (${m.roll})`).join(' · ');
 export const stages = project.stages;
 export const flowSegments = (flowRaw as unknown as { segments: FlowSegment[] }).segments;
 
